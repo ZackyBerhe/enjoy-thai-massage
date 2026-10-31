@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const BASE =
   'inline-flex items-center justify-center no-underline rounded-[40px] font-sans font-semibold leading-[normal] cursor-pointer';
 
@@ -15,17 +17,26 @@ const VARIANTS = {
 
 export default function Button({
   href = '#',
+  to,
   variant = 'primary',
   className = '',
   children,
   ...props
 }) {
+  const classes = `${BASE} ${
+    VARIANTS[variant] || VARIANTS.primary
+  } ${className}`;
+
+  if (to) {
+    return (
+      <Link to={to} className={classes} {...props}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <a
-      href={href}
-      className={`${BASE} ${VARIANTS[variant] || VARIANTS.primary} ${className}`}
-      {...props}
-    >
+    <a href={href} className={classes} {...props}>
       {children}
     </a>
   );

@@ -1,0 +1,19 @@
+# SPA fallback for Apache/IONOS hosting.
+# Deep links such as /datenschutzerklärung must return index.html so that
+# React Router can render the page.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Existing files and directories are served as-is.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Keep client-side routes free of a trailing slash. The build uses relative
+  # asset paths (homepage "."), which resolve from the domain root.
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  RewriteRule ^index\.html$ - [L]
+  RewriteRule . /index.html [L]
+</IfModule>

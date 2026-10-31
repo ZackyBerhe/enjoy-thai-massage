@@ -16,25 +16,25 @@ export const FEATURES = [
 
 export const SERVICES = [
   {
-    img: '/assets/card-thai.jpg',
+    img: 'assets/card-thai.jpg',
     alt: 'Kerzen und gerollte Handtücher',
     title: 'Traditionelle Thai-Massage',
     text: 'Körper und Energie in Balance',
   },
   {
-    img: '/assets/card-herbal.jpg',
+    img: 'assets/card-herbal.jpg',
     alt: 'Traditionelle Kräuterstempel mit Blüten',
     title: 'Thai-Kräuterstempelmassage',
     text: 'Wohltuende Wärme für tiefe Entspannung',
   },
   {
-    img: '/assets/card-face.png',
+    img: 'assets/card-face.jpg',
     alt: 'Sanfte Gesichtsmassage',
     title: 'Gesichts-Spa',
     text: 'Sanfte Pflege für strahlende Schönheit',
   },
   {
-    img: '/assets/card-stones.jpg',
+    img: 'assets/card-stones.jpg',
     alt: 'Natürliche graue und schwarze Massagesteine',
     title: 'Hot-Stone-Massage',
     text: 'Tiefenentspannung mit wohltuender Wärme',

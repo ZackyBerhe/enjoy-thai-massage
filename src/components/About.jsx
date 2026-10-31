@@ -11,7 +11,7 @@ export default function About() {
       >
         <img
           data-parallax
-          src="/assets/treatment.png"
+          src="assets/treatment.jpg"
           alt="Sanfte Wellnessbehandlung"
           loading="lazy"
           className="bg-[#e9dfcb] [object-position:center_45%]"

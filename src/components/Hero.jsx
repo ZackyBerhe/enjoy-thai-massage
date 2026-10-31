@@ -51,8 +51,9 @@ export default function Hero() {
       <div
         ref={heroLeftRef}
         data-hero-photo
+        role="img"
         aria-label="Kerzen, Handtücher und tropische Blüten"
-        style={{ backgroundImage: "url('/assets/hero-candles.jpg')" }}
+        style={{ backgroundImage: "url('assets/hero-candles.jpg')" }}
         className="relative min-h-[455px] max-[700px]:min-h-[250px] max-[700px]:row-start-2 isolate bg-no-repeat bg-cover bg-center after:absolute after:inset-0 after:content-[''] after:pointer-events-none after:bg-[linear-gradient(90deg,transparent_66%,#f8eedc_100%)] max-[700px]:after:hidden"
       >
         <span className={`${FLAME} ${FLAME_ANIMATION[0]}`} />
@@ -78,7 +79,7 @@ export default function Hero() {
           schenken Sie sich eine Auszeit vom Alltag.
         </p>
         <Button href="#massagen">
-          Unsere Massagen entdecken&nbsp; ›
+          Unsere Massagen entdecken
         </Button>
       </div>
 
@@ -86,7 +87,7 @@ export default function Hero() {
         role="img"
         data-hero-photo
         aria-label="Entspannte Frau bei einer wohltuenden Massage"
-        style={{ backgroundImage: "url('/assets/hero-massage.jpg')" }}
+        style={{ backgroundImage: "url('assets/hero-massage.jpg')" }}
         className="relative min-h-[455px] max-[700px]:min-h-[250px] max-[700px]:row-start-2 bg-no-repeat bg-cover bg-center after:absolute after:inset-0 after:content-[''] after:pointer-events-none after:bg-[linear-gradient(270deg,transparent_65%,#f8eedc_100%)] max-[700px]:after:hidden"
       />
     </header>

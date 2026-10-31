@@ -1,32 +1,20 @@
-import About from './components/About';
-import Contact from './components/Contact';
-import Features from './components/Features';
-import Footer from './components/Footer';
-import GiftCards from './components/GiftCards';
-import Hero from './components/Hero';
-import Navbar from './components/Navbar';
-import Packages from './components/Packages';
-import Pricing from './components/Pricing';
-import Services from './components/Services';
-import useScrollEffects from './useScrollEffects';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
+import Datenschutz from './pages/Datenschutz';
+import Home from './pages/Home';
 
 export default function App() {
-  useScrollEffects();
-
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <Features />
-        <Services />
-        <About />
-        <Pricing />
-        <Packages />
-        <GiftCards />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="datenschutzerklärung" element={<Datenschutz />} />
+        <Route
+          path="datenschutzerklaerung"
+          element={<Navigate to="/datenschutzerklärung" replace />}
+        />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
   );
 }

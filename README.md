@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# Thai Massage ENJOY – Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Website for **Thai Massage ENJOY** in Bad Endorf, Germany. The landing page
+keeps its single-page scroll experience, and the privacy policy lives on its
+own route.
 
-## Available Scripts
+## Tech stack
 
-In the project directory, you can run:
+- React 19 (Create React App)
+- React Router for the landing page and the privacy policy route
+- Tailwind CSS 3
+- GSAP + ScrollTrigger for scroll reveals and parallax effects
+- Self-hosted DM Sans and Cormorant Garamond fonts
 
-### `npm start`
+## Routes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `/` – landing page with all sections
+- `/datenschutzerklärung` – privacy policy (Datenschutzerklärung)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Requirements
 
-### `npm test`
+- Node.js 18 or newer
+- npm
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Local development
 
-### `npm run build`
+```bash
+npm install
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open [http://localhost:3000](http://localhost:3000). The page reloads when you
+edit source files.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Production build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm run build
+```
 
-### `npm run eject`
+The optimized static site is written to `build/`. To preview it locally:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npx serve -s build
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The build is a static site. Deploy the `build/` directory to any static host
+(Netlify, Vercel, Cloudflare Pages, GitHub Pages, a classic web host, etc.).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Typical settings:
 
-## Learn More
+- **Build command:** `npm run build`
+- **Publish directory:** `build`
+- **Node version:** 18 or newer
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`homepage` is set to `"."` in `package.json`, so the generated asset paths are
+relative and work both at a domain root and under a subpath.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### SPA fallback for deep links
 
-### Code Splitting
+Because the site uses `BrowserRouter`, a direct request to
+`/datenschutzerklärung` must return `index.html`. The build includes:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- `public/.htaccess` for Apache/IONOS hosting (copied to `build/.htaccess`)
+- `public/_redirects` for Netlify (copied to `build/_redirects`)
 
-### Analyzing the Bundle Size
+For other hosts, configure a rewrite of all unknown paths to `/index.html`
+with status 200. The `.htaccess` assumes deployment at the domain root; adjust
+`RewriteBase` and the trailing-slash redirect when deploying under a subpath.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Before going live
 
-### Making a Progressive Web App
+- Replace the relative Open Graph/Twitter image URL in `public/index.html`
+  with an absolute URL once the final domain is known, and add `og:url` plus a
+  canonical link.
+- Review the **Datenschutzerklärung** on `/datenschutzerklärung` and confirm
+  that its contact details match the Impressum. See the legal section below.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Content
 
-### Advanced Configuration
+- Navigation, services, prices, packages, and gift cards:
+  `src/data/siteData.js`
+- Contact and Impressum: `src/components/Contact.jsx`
+- Landing page composition: `src/pages/Home.jsx`
+- Privacy policy: `src/pages/Datenschutz.jsx`
+- Shared layout, navigation, and footer: `src/components/Layout.jsx`,
+  `src/components/Navbar.jsx`, `src/components/Footer.jsx`
+- Page sections: `src/components/`
+- Shared buttons, sections, and cards: `src/components/ui/`
+- Global styles: `src/index.css`
+- Font faces: `src/fonts.css`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Assets
 
-### Deployment
+- Optimized site images: `public/assets/`
+- Brand icons: `public/logo192.png`, `public/logo512.png`,
+  `public/apple-touch-icon.png`, `public/favicon.svg`,
+  `public/favicon-32.png`
+- Open Graph image: `public/assets/og-image.jpg`
+- High-resolution source images and unused design assets: `design-assets/`
+  (not included in the production build)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Fonts
 
-### `npm run build` fails to minify
+DM Sans and Cormorant Garamond are self-hosted from `src/fonts/` and licensed
+under the SIL Open Font License 1.1. See `src/fonts/README.md` for attribution.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Legal
+
+The Impressum is included in the contact section. The
+**Datenschutzerklärung** is available at `/datenschutzerklärung` and is linked
+from the footer.
+
+Before publishing, have the privacy policy reviewed and confirm that its
+contact data matches the Impressum. The privacy text currently supplied for the
+page uses slightly different details than the contact section (address,
+telephone number, and email address), so those differences must be resolved by
+the site owner.
+
+The site itself does not use cookies, analytics, or tracking scripts. Fonts are
+self-hosted, so opening the site does not contact Google Fonts. The Google Maps
+link is a normal external link, not an embedded map.

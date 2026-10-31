@@ -54,7 +54,7 @@ export default function Contact() {
           <br />
           <strong>Telefon:</strong>{' '}
           <a href="tel:+4980536859644" className={LINK}>
-            08053 6859 644
+            08053 6859 464
           </a>
         </p>
         <p className={`${TEXT} mt-[12px] mb-0`}>
@@ -65,7 +65,7 @@ export default function Contact() {
           10:00 – 19:00 Uhr
         </p>
         <div className="mt-[14px] flex">
-          <Button href="tel:+4917641947586" variant="dark">
+          <Button href="tel:080536859464" variant="dark">
           Jetzt anrufen
         </Button>
           <Button
@@ -97,7 +97,7 @@ export default function Contact() {
           <span className={TEXT}>
             <strong>Telefon:</strong>{' '}
             <a href="tel:+4980536859644" className={LINK}>
-              08053 6859 644
+              08053 6859 464
             </a>
           </span>
           <span className={TEXT}>
@@ -108,8 +108,8 @@ export default function Contact() {
           </span>
           <span className={TEXT}>
             <strong>E-Mail:</strong>{' '}
-            <a href="mailto:info@enjoy-badendorf.de" className={LINK}>
-              info@enjoy-badendorf.de
+            <a href="mailto:info@enjoythai-endorf.de" className={LINK}>
+              info@enjoythai-endorf.de
             </a>
           </span>
         </div>

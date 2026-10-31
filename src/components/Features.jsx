@@ -11,7 +11,10 @@ export default function Features() {
           key={icon}
           className="flex items-center justify-center gap-[14px] border-r border-[#e3cbb2] leading-[1.35] last:border-r-0 max-[700px]:border-r-0 max-[700px]:justify-start"
         >
-          <b className="block font-serif font-normal leading-[normal] text-[37px] max-[700px]:text-[28px] text-orange">
+          <b
+            aria-hidden="true"
+            className="block font-serif font-normal leading-[normal] text-[37px] max-[700px]:text-[28px] text-orange"
+          >
             {icon}
           </b>
           {line1}
